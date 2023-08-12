@@ -59,5 +59,12 @@ class SignInViewController: UIViewController {
         NSLayoutConstraint.activate(emailConstraints)
         NSLayoutConstraint.activate(passwordConstraints)
         NSLayoutConstraint.activate(buttonConstraints)
+        
+        sendButton.addTarget(self, action: #selector(sendDidTap), for: .touchUpInside)
     }
+    
+    @objc func sendDidTap(_ sender: UIButton){
+        print("clicou")
+    }
+   
 }
