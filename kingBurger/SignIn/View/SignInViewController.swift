@@ -23,6 +23,14 @@ class SignInViewController: UIViewController {
         passwordInput.placeholder = "Digite sua senha"
         return passwordInput
     }()
+    let sendButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .gray
+        button.setTitle("Entrar", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +49,15 @@ class SignInViewController: UIViewController {
             password.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 10.0),
             password.heightAnchor.constraint(equalToConstant: 50.0)
         ]
+        view.addSubview(sendButton)
+        let buttonConstraints = [
+            sendButton.leadingAnchor.constraint(equalTo: password.leadingAnchor),
+            sendButton.trailingAnchor.constraint(equalTo: password.trailingAnchor),
+            sendButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 10.0),
+            sendButton.heightAnchor.constraint(equalToConstant: 50.0)
+        ]
         NSLayoutConstraint.activate(emailConstraints)
         NSLayoutConstraint.activate(passwordConstraints)
-
+        NSLayoutConstraint.activate(buttonConstraints)
     }
 }
