@@ -23,12 +23,14 @@ class SignInViewController: UIViewController {
         passwordInput.placeholder = "Digite sua senha"
         return passwordInput
     }()
-    let sendButton: UIButton = {
+    lazy var sendButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .gray
         button.setTitle("Entrar", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(sendDidTap), for: .touchUpInside)
+
         return button
     }()
    
@@ -59,8 +61,6 @@ class SignInViewController: UIViewController {
         NSLayoutConstraint.activate(emailConstraints)
         NSLayoutConstraint.activate(passwordConstraints)
         NSLayoutConstraint.activate(buttonConstraints)
-        
-        sendButton.addTarget(self, action: #selector(sendDidTap), for: .touchUpInside)
     }
     
     @objc func sendDidTap(_ sender: UIButton){
