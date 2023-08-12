@@ -33,12 +33,11 @@ class SignInViewController: UIViewController {
             email.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             email.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100.0),
             email.heightAnchor.constraint(equalToConstant: 50.0)
-
         ]
         view.addSubview(password)
         let passwordConstraints = [
-            password.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            password.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            password.leadingAnchor.constraint(equalTo: email.leadingAnchor),
+            password.trailingAnchor.constraint(equalTo: email.trailingAnchor),
             password.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 10.0),
             password.heightAnchor.constraint(equalToConstant: 50.0)
         ]
