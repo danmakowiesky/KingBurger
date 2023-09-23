@@ -30,7 +30,6 @@ class SignInViewController: UIViewController {
         button.setTitle("Entrar", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(sendDidTap), for: .touchUpInside)
-
         return button
     }()
    
