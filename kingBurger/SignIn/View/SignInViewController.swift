@@ -13,6 +13,10 @@ class SignInViewController: UIViewController {
         let emailInput = UITextField()
         emailInput.translatesAutoresizingMaskIntoConstraints = false
         emailInput.backgroundColor = UIColor.white
+        emailInput.layer.cornerRadius = 6
+        emailInput.layer.borderWidth = 1
+        emailInput.layer.borderColor = UIColor(red: 0.867, green: 0.871, blue: 0.873, alpha: 1).cgColor
+        emailInput.layer.contents =
         emailInput.placeholder = "Entre com seu e-mail"
         return emailInput
     }()
@@ -20,6 +24,9 @@ class SignInViewController: UIViewController {
         let passwordInput = UITextField()
         passwordInput.translatesAutoresizingMaskIntoConstraints = false
         passwordInput.backgroundColor = UIColor.white
+        passwordInput.layer.cornerRadius = 6
+        passwordInput.layer.borderWidth = 1
+        passwordInput.layer.borderColor = UIColor(red: 0.867, green: 0.871, blue: 0.873, alpha: 1).cgColor
         passwordInput.placeholder = "Digite sua senha"
         return passwordInput
     }()
@@ -32,14 +39,21 @@ class SignInViewController: UIViewController {
         button.addTarget(self, action: #selector(sendDidTap), for: .touchUpInside)
         return button
     }()
+    
+    var viewModel: SignInViewModel? {
+        didSet {
+            viewModel?.delegate = self
+        }
+    }
    
+    //definição de layouy
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.cyan
+        view.backgroundColor = .lightGray
         view.addSubview(email)
         let emailConstraints = [
-            email.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            email.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            email.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
+            email.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0),
             email.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100.0),
             email.heightAnchor.constraint(equalToConstant: 50.0)
         ]
@@ -62,8 +76,16 @@ class SignInViewController: UIViewController {
         NSLayoutConstraint.activate(buttonConstraints)
     }
     
+    //evento de touch
     @objc func sendDidTap(_ sender: UIButton){
-        print("clicou")
+        viewModel?.send()
     }
-   
+    
+}
+//separado em extension para verificar o observador. questão apenas de organização.
+extension SignInViewController: SignInViewModelDelegate {
+    //observador ( qualquer mudança de status do view Model)
+    func viewModelDidChanged(state: SignInState) {
+        print("View Model notificou com o state: \(state)")
+    }
 }
