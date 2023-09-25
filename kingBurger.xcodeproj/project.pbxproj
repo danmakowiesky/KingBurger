@@ -14,6 +14,7 @@
 		D79B4C4E2A87062F00A68EFF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4C4D2A87062F00A68EFF /* SignInViewController.swift */; };
 		D7D29C172AC246D900069420 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D29C162AC246D900069420 /* SignInViewModel.swift */; };
 		D7D29C192AC24C0400069420 /* SignInState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D29C182AC24C0400069420 /* SignInState.swift */; };
+		D7D29C1D2AC2544700069420 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D29C1C2AC2544700069420 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D79B4C4D2A87062F00A68EFF /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D7D29C162AC246D900069420 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		D7D29C182AC24C0400069420 /* SignInState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInState.swift; sourceTree = "<group>"; };
+		D7D29C1C2AC2544700069420 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		D79B4C362A86F24900A68EFF /* kingBurger */ = {
 			isa = PBXGroup;
 			children = (
+				D7D29C1A2AC2542800069420 /* SignUp */,
 				D79B4C4B2A87060C00A68EFF /* SignIn */,
 				D79B4C372A86F24900A68EFF /* AppDelegate.swift */,
 				D79B4C392A86F24900A68EFF /* SceneDelegate.swift */,
@@ -92,6 +95,22 @@
 				D7D29C182AC24C0400069420 /* SignInState.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D7D29C1A2AC2542800069420 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D7D29C1B2AC2543C00069420 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		D7D29C1B2AC2543C00069420 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7D29C1C2AC2544700069420 /* SignUpViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D29C1D2AC2544700069420 /* SignUpViewController.swift in Sources */,
 				D7D29C172AC246D900069420 /* SignInViewModel.swift in Sources */,
 				D79B4C4E2A87062F00A68EFF /* SignInViewController.swift in Sources */,
 				D79B4C382A86F24900A68EFF /* AppDelegate.swift in Sources */,

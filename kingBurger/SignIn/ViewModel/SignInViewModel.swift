@@ -29,5 +29,12 @@ class SignInViewModel {
         }
     }
     
+    func register(){
+        state = .loading
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.state = .error("Usuário não existe")
+        }
+    }
+    
 }
 

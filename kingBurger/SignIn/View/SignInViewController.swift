@@ -40,6 +40,16 @@ class SignInViewController: UIViewController {
         return button
     }()
     
+    lazy var registerButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemBlue
+        button.setTitle("Criar Conta", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(registerDidTap), for: .touchUpInside)
+        return button
+    }()
+    
     var viewModel: SignInViewModel? {
         didSet {
             viewModel?.delegate = self
@@ -49,7 +59,8 @@ class SignInViewController: UIViewController {
     //definição de layouy
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemBackground
+        navigationItem.title = "Login"
         view.addSubview(email)
         let emailConstraints = [
             email.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
@@ -71,14 +82,28 @@ class SignInViewController: UIViewController {
             sendButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 10.0),
             sendButton.heightAnchor.constraint(equalToConstant: 50.0)
         ]
+        view.addSubview(registerButton)
+        let registerButtonConstraints = [
+            registerButton.leadingAnchor.constraint(equalTo: email.leadingAnchor),
+            registerButton.trailingAnchor.constraint(equalTo: email.trailingAnchor),
+            registerButton.topAnchor.constraint(equalTo: sendButton.bottomAnchor, constant: 10.0),
+            registerButton.heightAnchor.constraint(equalToConstant: 50.0)
+        ]
         NSLayoutConstraint.activate(emailConstraints)
         NSLayoutConstraint.activate(passwordConstraints)
         NSLayoutConstraint.activate(buttonConstraints)
+        NSLayoutConstraint.activate(registerButtonConstraints)
+
     }
     
     //evento de touch
     @objc func sendDidTap(_ sender: UIButton){
         viewModel?.send()
+    }
+    
+    @objc func registerDidTap(_ sender: UIButton){
+        let signUpVC = SignUpViewController()
+        navigationController?.pushViewController(signUpVC, animated: true)
     }
     
 }
