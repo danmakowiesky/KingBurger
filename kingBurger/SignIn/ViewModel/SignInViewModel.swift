@@ -14,6 +14,7 @@ protocol SignInViewModelDelegate {
 class SignInViewModel {
     
     var delegate: SignInViewModelDelegate?
+    var coordinator: SignInCoordinator?
     
     var state: SignInState = .none {
         didSet {
@@ -29,11 +30,8 @@ class SignInViewModel {
         }
     }
     
-    func register(){
-        state = .loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.state = .error("Usuário não existe")
-        }
+    func goToSignUp(){
+        coordinator?.signUp()
     }
     
 }

@@ -102,8 +102,7 @@ class SignInViewController: UIViewController {
     }
     
     @objc func registerDidTap(_ sender: UIButton){
-        let signUpVC = SignUpViewController()
-        navigationController?.pushViewController(signUpVC, animated: true)
+        viewModel?.goToSignUp()
     }
     
 }
