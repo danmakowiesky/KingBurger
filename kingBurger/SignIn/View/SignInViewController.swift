@@ -60,7 +60,6 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Login"
         view.addSubview(email)
         let emailConstraints = [
             email.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
